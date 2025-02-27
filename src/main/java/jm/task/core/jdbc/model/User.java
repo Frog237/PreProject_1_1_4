@@ -1,8 +1,13 @@
 package jm.task.core.jdbc.model;
 
+import jm.task.core.jdbc.util.Util;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 @Table
 public class User {
@@ -58,5 +63,13 @@ public class User {
 
     public void setAge(Byte age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age + '}';
     }
 }
