@@ -1,14 +1,12 @@
 package jm.task.core.jdbc;
 
-import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.service.UserServiceImpl;
-
-import java.util.List;
+import jm.task.core.jdbc.service.UserService;
+import jm.task.core.jdbc.service.UserServiceHibernateImpl;
 
 public class Main {
     public static void main(String[] args) {
 
-        UserServiceImpl userServ = new UserServiceImpl();
+        UserService userServ = new UserServiceHibernateImpl();
 
         userServ.createUsersTable();
 
@@ -17,13 +15,11 @@ public class Main {
         userServ.saveUser("Nikita", "Skutin", (byte) 27);
         userServ.saveUser("Nikita", "Skutin", (byte) 28);
 
-        List<User> users = userServ.getAllUsers();
-        for (User user : users) {
-            System.out.println(user);
-        }
+        userServ.getAllUsers().forEach(System.out::println);
+
+
 
         userServ.cleanUsersTable();
-
         userServ.dropUsersTable();
     }
 }
