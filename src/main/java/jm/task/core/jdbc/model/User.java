@@ -1,14 +1,9 @@
 package jm.task.core.jdbc.model;
 
-import jm.task.core.jdbc.util.Util;
-
 import javax.persistence.*;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

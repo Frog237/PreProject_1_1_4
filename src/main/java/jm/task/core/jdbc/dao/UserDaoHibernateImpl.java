@@ -4,8 +4,6 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 
@@ -90,7 +88,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.createSQLQuery(
-                            "DELETE FROM User")
+                            "DELETE FROM Users")
                     .executeUpdate();
             transaction.commit();
         }
